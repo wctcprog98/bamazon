@@ -1,10 +1,7 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
-
 var express = require("express");
-
 var app = express();
-
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8080
 // create the connection information for the sql database
@@ -22,10 +19,11 @@ var connection = mysql.createConnection({
   database: "bamazon_db"
 });
 
+
+
 // connect to the mysql server and sql database
-connection.connect(function(err) {
-  if (err) throw err;
-  console.log("404 Error"); 
+connection.connect(function (err) {
+  console.log("Connected as id: " + connection.threadId); 
 });
 
 app.listen(PORT, function() {
