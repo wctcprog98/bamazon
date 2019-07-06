@@ -5,7 +5,7 @@ create database bamazon_db;
 use bamazon_db; 
 
 create table products (
-id integer(10) not null auto_increment ,
+id integer(10) not null auto_increment,
 product_name varchar(100) not null,
 department_name varchar(40) not null,
 price integer(10) not null,
