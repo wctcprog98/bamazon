@@ -24,8 +24,6 @@ var connection = mysql.createConnection({
   database: "bamazon_db"
 });
 
-
-
 // connect to the mysql server and sql database
 connection.connect(function (err) {
   if (err) throw err;
@@ -55,6 +53,7 @@ function displayProducts() {
 	});
 }
 
+//prompt user for id# of item they want to purchase
 var productPrompt = function (res) {
   inquirer.prompt([{
     message: "What's the id of the product you would like to purchase? ",
@@ -68,6 +67,7 @@ var productPrompt = function (res) {
       return false;
     }
   }, {
+    //prompt user for quantity of the item they want to purchase
     message: "What quantity would you like to purchase? ",
     type: "input",
     name: "quantity",
@@ -75,7 +75,7 @@ var productPrompt = function (res) {
       if (isNaN(value) === false) {
         return true;
       }
-      console.log(chalk.red('Please enter a number from 1-10'));
+      console.log(chalk.red('Please enter a number from 1-10')); //red text if NaN
       return false;
     }
   },
@@ -93,33 +93,13 @@ var productPrompt = function (res) {
     connection.query("SELECT * FROM products WHERE id = " + idNeeded, function (err, res) {
       if (err) throw err;
       console.log("Here is your order information and our current stock.")
-      console.log(res); 
-    });
-
-  });
-}
-
-
-
-//check if quantitiy is available
-
-//get id entered by user and select from database and show results to customer
-//ask quantity wanted to buy
-//calculate total purchase price
-//update quantity in database
-
-
-//   }]).then(function (answer) {
-//     connection.query("")
+      console.log(res);
     
 
+    });
 
-//   })
+    })
+}
 
-// }
-// var prodQuestions = [{
- 
-
-// inquirer.prompt(prodQuestions, typeOfProduct);
 
 
