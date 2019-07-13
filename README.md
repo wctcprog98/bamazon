@@ -42,7 +42,8 @@ If the purchase goes through, it updates the stock quantity to reflect the purch
 * Add new products to database
 * Update or change quantity in manager 
 * Add an exit option 
-## Author 
 
+## Author 
 Nenye Diei
+
 Check out my other [projects](https://wctcprog98.github.io/responsive-portfolio/)
