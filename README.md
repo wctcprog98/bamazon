@@ -8,7 +8,7 @@ This is a Disney trivia game that allows the user to guess the correct answer wi
 3. In terminal run node bamazonCustomer and hit enter to start program
 4. Run 'ctrl + c' to exit each mode
 
-##How it works
+## How it works
 #BamazonCustomer.js
 
 - Displays table of products available or sale
