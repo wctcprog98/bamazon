@@ -45,4 +45,4 @@ If the purchase goes through, it updates the stock quantity to reflect the purch
 ## Author 
 
 Nenye Diei
-Click hear to check out my other projecfs in my [portfolio](https://wctcprog98.github.io/responsive-portfolio/)
+Check out my other [projects](https://wctcprog98.github.io/responsive-portfolio/)
