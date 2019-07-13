@@ -32,6 +32,7 @@ connection.connect(function (err) {
   // afterConnection(); 
 });
 
+
 //display PRODUCTS AVAILABLE.
 function displayProducts() {	
 	connection.query("Select * FROM products", function(err, res){
@@ -56,7 +57,7 @@ function displayProducts() {
 //prompt user for id# of item they want to purchase
 var productPrompt = function (res) {
   inquirer.prompt([{
-    message: "What's the id of the product you would like to purchase? ",
+    message: "What? product you would like to purchase ",
     type: "input",
     name: "productID",
     validate: function (value) {
@@ -86,20 +87,20 @@ var productPrompt = function (res) {
     default: true
   },
   ]).then(function (answers) {
+    
     var quantityNeeded = answers.quantity;
     var idNeeded = answers.productID;
     console.log(idNeeded);
     
     connection.query("SELECT * FROM products WHERE id = " + idNeeded, function (err, res) {
       if (err) throw err;
-      console.log("Here is your order information and our current stock.")
+      console.log("Here is your order information and our current stock.");
       console.log(res);
-    
-
     });
-
     })
 }
+
+
 
 
 
