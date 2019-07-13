@@ -54,7 +54,7 @@ function displayProducts() {
   });
 }
 
-function userChoice() {
+function userChoice(){
   // query the database for all items
   connection.query("SELECT * FROM products", function (err, results) {
     if (err) throw err;
@@ -77,46 +77,58 @@ function userChoice() {
           name: "quantity",
           message: "What quantity would you like to purchase?",
           validate: function (value) {
-                  if (isNaN(value) === false) {
-                    return true;
-                  }
-                  console.log(chalk.red('Please enter a number from 1-10')); //red text if NaN
-                  return false;
-                }
+            if (isNaN(value) === false) {
+              return true;
+            }
+            console.log(chalk.red('Please enter a number from 1-10')); //red text if NaN
+            return false;
+          }
         }
       ])
       .then(function (answer) {
         var quantityNeeded = answer.quantity;
-        var idNeeded = answer.productID;
-
+        var productName = answer.productID;
+        console.log("This is" + productName); 
         // get the information of the chosen item
         var chosenItem;
         for (var i = 0; i < results.length; i++) {
-          if (results[i].product_name === idNeeded) {
+          if (results[i].product_name === productName) {
             chosenItem = results[i];
-
           }
         }
-        console.log(chosenItem);
-
         // determine if enough stock on hand
         if (quantityNeeded < chosenItem.stock_quantity) {
-          console.log(quantityNeeded);
-          console.log(chosenItem.stock_quantity);
-          console.log("You are in luck we have that product in stock");
+          console.log("You are in luck we have that product in stock!");
           //calculte total purchase price
-          var productPrice = chosenItem.price; 
-              var cost = quantityNeeded * productPrice;
-            console.log("Your total is $" + cost);
-          }
+          var productPrice = chosenItem.price;
+          var cost = quantityNeeded * productPrice;
+          console.log("Your total is $" + cost);
+          //update stock in db
+          var updatedStock = chosenItem.stock_quantity - quantityNeeded;
+          console.log(updatedStock);
+          connection.query("UPDATE products SET ? WHERE ?",
+            [
+              {
+                stock_quantity: updatedStock
+              },
+              {
+                id: chosenItem.id
+              }
+            ],
+            function (error) {
+              if (error) throw err;
+              displayProducts();
+            })
+        }
         else {
-            // bid wasn't high enough, so apologize and start over
+          // bid wasn't high enough, so apologize and start over
           console.log("We don't have enough stock available please enter a smaller quantity...");
-          }
-        });
+        }
+      });
   });
 }
-//update stock in db
+
+
 
 // //prompt user for id# of item they want to purchase
 // var productPrompt = function (res) {
