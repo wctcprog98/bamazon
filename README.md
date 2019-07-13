@@ -2,14 +2,14 @@
 
 This is a Disney trivia game that allows the user to guess the correct answer within one minute and 30 seconds. The game begins when the user clicks the start button, this shows the questions on the main screen and starts the countdown timer. The final page shows how many answers were correct and incorrect if the user clicks the submit button or if the results will also be shown if their is no time left on the timer. 
 
-##Getting Started
+## Getting Started
 1. Clone repo.
 2. Run command in Terminal or Gitbash 'npm install'
 3. In terminal run node bamazonCustomer and hit enter to start program
 4. Run 'ctrl + c' to exit each mode
 
 ## How it works
-#BamazonCustomer.js
+# BamazonCustomer.js
 
 - Displays table of products available or sale
     - price
@@ -27,7 +27,7 @@ However, if there is not enough of the product in stock, it will tell the user t
 If the purchase goes through, it updates the stock quantity to reflect the purchase and displays the total for the purchase.
 
 
-##Built With
+## Built With
 * Jquery
 * JavaScript
 * CSS
@@ -36,13 +36,13 @@ If the purchase goes through, it updates the stock quantity to reflect the purch
 * inquirer 
 * npm 
 
-##To Do 
+## To Do 
 
 * Add Manager options
 * Add new products to database
 * Update or change quantity in manager 
 * Add an exit option 
-##Author 
+## Author 
 
 Nenye Diei
 Click hear to check out my other projecfs in my [portfolio](https://wctcprog98.github.io/responsive-portfolio/)
