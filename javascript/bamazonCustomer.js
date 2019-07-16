@@ -134,6 +134,7 @@ function reprompt(){
       userChoice();
     } else{
       console.log("See you soon!");
+      connection.end(); 
     }
   });
 }
