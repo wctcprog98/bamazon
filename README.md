@@ -1,7 +1,7 @@
 ### bamazon
 
 Is a cli that allows a user to view and purchase products from the bamazon store. The program begins by asking the user what they would like to purchase. 
-<img src="assets/images/screen1"
+<img src="assets/images/screen1.png"
      alt="Bamazon screen"
      style="float: left; margin-right: 10px;" />
 They can do this by either entering in the id number or by selecting the product from the dropdown menu. If there is sufficient amount of the product in stock, it will return the total for that purchase.
